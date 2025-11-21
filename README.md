@@ -586,6 +586,15 @@ end)
 | `gp.logger.warn()`                                                                                                  | `logger.warn(...)`<br> Тост с предупреждением                                                                                                                                                                                                                                 |
 | `gp.logger.error()`                                                                                                 | `logger.error(...)`<br> Тост с ошибкой                                                                                                                                                                                                                                        |
 | `gp.logger.log()`                                                                                                   | `logger.log(...)`<br> Лог в консоль                                                                                                                                                                                                                                           |
+| **Звуки** [(doc)](https://docs.gamepush.com/docs/sounds)||
+| События:||
+| `gp.sounds.on('mute', () => {})`| `sounds.callbacks.mute()`<br> Необходимо выключить все звуки в игре |
+| `gp.sounds.on('mute:sfx', () => {})`| `sounds.callbacks.mute_sfx()`<br> Необходимо выключить звуковые эффекты (нажатия кнопок, шум стрельбы, звуки хотьбы, прыжков и прочего) |
+| `gp.sounds.on('mute:music', () => {})`| `sounds.callbacks.mute_music()`<br> Необходимо выключить музыку в игре |
+| `gp.sounds.on('unmute', () => {})`| `sounds.callbacks.unmute()`<br> Необходимо включить все звуки в игре |
+| `gp.sounds.on('unmute:sfx', () => {})`| `sounds.callbacks.unmute_sfx()`<br> Необходимо включить звуковые эффекты в игре |
+| `gp.sounds.on('unmute:music', () => {})`| `sounds.callbacks.unmute_music()`<br> Необходимо включить музыку в игре |
+
 
 <a name="native-sdk"></a>
 

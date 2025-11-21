@@ -213,7 +213,15 @@ local M = {
         ["open"] = 0xFC00,
         ["close"] = 0xFC01,
         ["change"] = 0xFC02
-    }
+    },
+    sounds = {
+        ["mute"] = 0xFD00,
+        ["mute:sfx"] = 0xFD01,
+        ["mute:music"] = 0xFD02,
+        ["unmute"] = 0xFD03,
+        ["unmute:sfx"] = 0xFD04,
+        ["unmute:music"] = 0xFD05
+    },
 }
 
 return M

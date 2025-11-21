@@ -151,5 +151,6 @@ M.documents = require("gamepush.core.documents")
 M.analytics = require("gamepush.core.analytics")
 M.fullscreen = require("gamepush.core.fullscreen")
 M.logger = require("gamepush.core.logger")
+M.sounds = require("gamepush.core.sounds")
 
 return M

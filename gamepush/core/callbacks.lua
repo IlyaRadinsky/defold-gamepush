@@ -213,6 +213,14 @@ local M = {
         open = nil,
         close = nil,
         change = nil
+    },
+    sounds = {
+        mute = nil,
+        mute_sfx = nil,
+        mute_music = nil,
+        unmute = nil,
+        unmute_sfx = nil,
+        unmute_music = nil,
     }
 }
 
