@@ -34,7 +34,7 @@ function M.is_external_links_allowed()
 end
 
 ---Доступен секретный код авторизации
----@return string
+---@return boolean
 function M.is_secret_code_auth_available()
     return core.call_api("platform.isSecretCodeAuthAvailable") == true
 end
