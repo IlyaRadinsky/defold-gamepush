@@ -55,7 +55,7 @@ let LibraryGamePush = {
             let last_index = path.length - 1
             for (let index = 0; index < path.length; index++) {
                 let item = path[index];
-                if (parent_object[item]) {
+                if (parent_object[item] !== undefined) {
                     if (index === last_index) {
                         result_object = parent_object[item];
                     } else {
