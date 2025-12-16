@@ -33,7 +33,7 @@ end
 ---Получить текущий язык
 ---@return string код языка в формате ISO 639-1
 function M.language()
-    return core.call_api("language")
+    return core.call_api("gp.language")
 end
 
 ---Установить язык
@@ -42,85 +42,85 @@ function M.change_language(language_code)
     if type(language_code) ~= "string" then
         error("The language code must be a string!", 2)
     end
-    core.call_api("changeLanguage", language_code)
+    core.call_api("gp.changeLanguage", language_code)
 end
 
 ---Мобильное устройство?
 ---@return boolean
 function M.is_mobile()
-    return core.call_api("isMobile") == true
+    return core.call_api("gp.isMobile") == true
 end
 
 ---Режим экрана: портретный/альбомный?
 ---@return boolean
 function M.is_portrait()
-    return core.call_api("isPortrait") == true
+    return core.call_api("gp.isPortrait") == true
 end
 
 ---В разработке?
 ---@return boolean
 function M.is_dev()
-    return core.call_api("isDev") == true
+    return core.call_api("gp.isDev") == true
 end
 
 ---Хост игры в доверенных источниках?
 ---@return boolean
 function M.is_allowed_origin()
-    return core.call_api("isAllowedOrigin") == true
+    return core.call_api("gp.isAllowedOrigin") == true
 end
 
 ---Возвращает серверное время
 ---@return string
 function M.get_server_time()
-    return core.call_api("serverTime")
+    return core.call_api("gp.serverTime")
 end
 
 ---На паузе?
 ---@return boolean
 function M.is_paused()
-    return core.call_api("isPaused") == true
+    return core.call_api("gp.isPaused") == true
 end
 
 ---Поставить на паузу
 function M.pause()
-    core.call_api("pause")
+    core.call_api("gp.pause")
 end
 
 ---Возобновить
 function M.resume()
-    core.call_api("resume")
+    core.call_api("gp.resume")
 end
 
 ---Установить фоновое изображение игры
 ---@param parameters table параметры
 function M.set_background(parameters)
     helpers.check_table_required(parameters)
-    core.call_api("setBackground", { parameters })
+    core.call_api("gp.setBackground", { parameters })
 end
 
 ---Старт игры
 function M.game_start()
-    core.call_api("gameStart")
+    core.call_api("gp.gameStart")
 end
 
 ---Запущена ли игра (загрузка завершена)
 function M.is_game_started()
-    return core.call_api("isGameStarted") == true
+    return core.call_api("gp.isGameStarted") == true
 end
 
 ---Запуск геймплея
 function M.gameplay_start()
-    core.call_api("gameplayStart")
+    core.call_api("gp.gameplayStart")
 end
 
 ---Завершение геймплея
 function M.gameplay_stop()
-    core.call_api("gameplayStop")
+    core.call_api("gp.gameplayStop")
 end
 
 ---Геймплей запущен?
 function M.is_game_play()
-    return core.call_api("isGameplay") == true
+    return core.call_api("gp.isGameplay") == true
 end
 
 ---Возвращает версию плагина

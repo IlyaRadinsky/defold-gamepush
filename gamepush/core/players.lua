@@ -8,7 +8,7 @@ local helpers = require("gamepush.core.helpers")
 function M.fetch(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("players.fetch", { parameters }, callback)
+    core.call_api("gp.players.fetch", { parameters }, callback)
 end
 
 return M

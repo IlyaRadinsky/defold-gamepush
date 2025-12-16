@@ -6,7 +6,7 @@ local helpers = require("gamepush.core.helpers")
 ---@param url string адрес страницы
 function M.hit(url)
     helpers.check_string(url, "url")
-    core.call_api("analytics.hit", { url })
+    core.call_api("gp.analytics.hit", { url })
 end
 
 ---Отправка достижения цели
@@ -17,7 +17,7 @@ function M.goal(event, value)
     if value then
         helpers.check_value(value)
     end
-    core.call_api("analytics.goal", { event, value })
+    core.call_api("gp.analytics.goal", { event, value })
 end
 
 return M

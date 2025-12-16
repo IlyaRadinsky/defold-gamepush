@@ -6,19 +6,19 @@ local callbacks = require("gamepush.core.callbacks")
 ---Проверка поддержки платежей на платформе
 ---@return boolean результат
 function M.is_available()
-    return core.call_api("payments.isAvailable") == true
+    return core.call_api("gp.payments.isAvailable") == true
 end
 
 ---Список продуктов
 ---@return table результат
 function M.products()
-    return core.call_api("payments.products")
+    return core.call_api("gp.payments.products")
 end
 
 ---Список покупок
 ---@return table результат
 function M.purchases()
-    return core.call_api("payments.purchases")
+    return core.call_api("gp.payments.purchases")
 end
 
 ---Покупка
@@ -27,7 +27,7 @@ end
 function M.purchase(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("payments.purchase", { parameters }, callback)
+    core.call_api("gp.payments.purchase", { parameters }, callback)
 end
 
 ---Использование покупки
@@ -36,7 +36,7 @@ end
 function M.consume(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("payments.consume", { parameters }, callback)
+    core.call_api("gp.payments.consume", { parameters }, callback)
 end
 
 ---Проверка наличия покупки
@@ -44,20 +44,20 @@ end
 ---@return boolean результат
 function M.has(product)
     helpers.check_string_or_number(product, "product")
-    return core.call_api("payments.has", product) == true
+    return core.call_api("gp.payments.has", product) == true
 end
 
 ---Получение списка продуктов
 ---@param callback function функция обратного вызова по результату получения списка продуктов: callback(result)
 function M.fetch_products(callback)
     helpers.check_callback(callback)
-    core.call_api("payments.fetchProducts", nil, callback)
+    core.call_api("gp.payments.fetchProducts", nil, callback)
 end
 
 ---Проверка поддержки подписки на платформе
 ---@return boolean результат
 function M.is_subscriptions_available()
-    return core.call_api("payments.isSubscriptionsAvailable") == true
+    return core.call_api("gp.payments.isSubscriptionsAvailable") == true
 end
 
 ---Подписка
@@ -66,7 +66,7 @@ end
 function M.subscribe(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("payments.subscribe", { parameters }, callback)
+    core.call_api("gp.payments.subscribe", { parameters }, callback)
 end
 
 ---Отмена подписки
@@ -75,7 +75,7 @@ end
 function M.unsubscribe(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("payments.unsubscribe", { parameters }, callback)
+    core.call_api("gp.payments.unsubscribe", { parameters }, callback)
 end
 
 M.callbacks = callbacks.payments

@@ -16,14 +16,14 @@ M.types = {
 ---@param callback function функция обратного вызова по результату запроса переменных: callback()
 function M.fetch(callback)
     helpers.check_callback(callback)
-    core.call_api("variables.fetch", nil, callback)
+    core.call_api("gp.variables.fetch", nil, callback)
 end
 
 ---Получить значение переменной
 ---@param variable string название переменной
 function M.get(variable)
     helpers.check_string(variable, "variable")
-    return core.call_api("variables.get", { variable })
+    return core.call_api("gp.variables.get", { variable })
 end
 
 ---Проверить существование переменной
@@ -31,7 +31,7 @@ end
 ---@return boolean результат
 function M.has(variable)
     helpers.check_string(variable, "variable")
-    return core.call_api("variables.has", { variable }) == true
+    return core.call_api("gp.variables.has", { variable }) == true
 end
 
 ---Получить тип переменной
@@ -39,7 +39,7 @@ end
 ---@return string результат
 function M.type(variable)
     helpers.check_string(variable, "variable")
-    return core.call_api("variables.type", { variable })
+    return core.call_api("gp.variables.type", { variable })
 end
 
 M.callbacks = callbacks.variables

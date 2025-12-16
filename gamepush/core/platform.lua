@@ -18,25 +18,25 @@ M.WG_PLAYGROUND = "WG_PLAYGROUND"
 ---Тип платформы
 ---@return string
 function M.type()
-    return core.call_api("platform.type")
+    return core.call_api("gp.platform.type")
 end
 
 ---Возможность авторизации
 ---@return boolean
 function M.has_integrated_auth()
-    return core.call_api("platform.hasIntegratedAuth") == true
+    return core.call_api("gp.platform.hasIntegratedAuth") == true
 end
 
 ---Возможность размещать внешние ссылки
 ---@return boolean
 function M.is_external_links_allowed()
-    return core.call_api("platform.isExternalLinksAllowed") == true
+    return core.call_api("gp.platform.isExternalLinksAllowed") == true
 end
 
 ---Доступен секретный код авторизации
 ---@return boolean
 function M.is_secret_code_auth_available()
-    return core.call_api("platform.isSecretCodeAuthAvailable") == true
+    return core.call_api("gp.platform.isSecretCodeAuthAvailable") == true
 end
 
 ---Выполнить нативный метод платформы. Если method API является объектом.

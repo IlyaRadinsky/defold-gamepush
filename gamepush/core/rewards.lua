@@ -9,7 +9,7 @@ local callbacks = require("gamepush.core.callbacks")
 function M.give(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("rewards.give", { parameters }, callback)
+    core.call_api("gp.rewards.give", { parameters }, callback)
 end
 
 ---Принять награду
@@ -18,19 +18,19 @@ end
 function M.accept(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("rewards.accept", { parameters }, callback)
+    core.call_api("gp.rewards.accept", { parameters }, callback)
 end
 
 ---Список наград
 ---@return table результат
 function M.list()
-    return core.call_api("rewards.list")
+    return core.call_api("gp.rewards.list")
 end
 
 ---Список выданных наград
 ---@return table результат
 function M.given_list()
-    return core.call_api("rewards.givenList")
+    return core.call_api("gp.rewards.givenList")
 end
 
 ---Получение информации о награде
@@ -38,7 +38,7 @@ end
 ---@return table результат
 function M.get_reward(id_or_tag)
     helpers.check_string_or_number(id_or_tag, "id_or_tag")
-    return core.call_api("rewards.getReward", id_or_tag)
+    return core.call_api("gp.rewards.getReward", id_or_tag)
 end
 
 ---Проверка выдачи награды
@@ -46,7 +46,7 @@ end
 ---@return boolean результат
 function M.has(id_or_tag)
     helpers.check_string_or_number(id_or_tag, "id_or_tag")
-    return core.call_api("rewards.has", id_or_tag) == true
+    return core.call_api("gp.rewards.has", id_or_tag) == true
 end
 
 ---Проверка принятия награды
@@ -54,7 +54,7 @@ end
 ---@return boolean результат
 function M.has_accepted(id_or_tag)
     helpers.check_string_or_number(id_or_tag, "id_or_tag")
-    return core.call_api("rewards.hasAccepted", id_or_tag) == true
+    return core.call_api("gp.rewards.hasAccepted", id_or_tag) == true
 end
 
 ---Награда выдана, но не получена
@@ -62,7 +62,7 @@ end
 ---@return boolean результат
 function M.has_unaccepted(id_or_tag)
     helpers.check_string_or_number(id_or_tag, "id_or_tag")
-    return core.call_api("rewards.hasUnaccepted", id_or_tag) == true
+    return core.call_api("gp.rewards.hasUnaccepted", id_or_tag) == true
 end
 
 M.callbacks = callbacks.rewards

@@ -7,7 +7,7 @@ local callbacks = require("gamepush.core.callbacks")
 ---@param parameters table
 function M.open(parameters)
     helpers.check_table_required(parameters)
-    core.call_api("documents.open", { parameters })
+    core.call_api("gp.documents.open", { parameters })
 end
 
 ---Получить политику конфиденциальности
@@ -16,7 +16,7 @@ end
 function M.fetch(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("documents.fetch", { parameters }, callback)
+    core.call_api("gp.documents.fetch", { parameters }, callback)
 end
 
 M.callbacks = callbacks.documents
