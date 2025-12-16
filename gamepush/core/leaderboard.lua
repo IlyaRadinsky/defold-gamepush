@@ -6,7 +6,7 @@ local helpers = require("gamepush.core.helpers")
 ---@param parameters table|nil параметры вывода
 function M.open(parameters)
     helpers.check_table(parameters)
-    core.call_api("gp.leaderboard.open", { parameters })
+    core.call_api("leaderboard.open", { parameters })
 end
 
 ---Получить таблицу лидеров
@@ -15,7 +15,7 @@ end
 function M.fetch(parameters, callback)
     helpers.check_table(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.leaderboard.fetch", { parameters }, callback)
+    core.call_api("leaderboard.fetch", { parameters }, callback)
 end
 
 ---Получить рейтинг игрока
@@ -24,7 +24,7 @@ end
 function M.fetch_player_rating(parameters, callback)
     helpers.check_table(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.leaderboard.fetchPlayerRating", { parameters }, callback)
+    core.call_api("leaderboard.fetchPlayerRating", { parameters }, callback)
 end
 
 ---Показать изолированную таблицу лидеров во внутриигровом оверлее
@@ -33,7 +33,7 @@ end
 function M.open_scoped(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.leaderboard.openScoped", { parameters }, callback)
+    core.call_api("leaderboard.openScoped", { parameters }, callback)
 end
 
 ---Получить изолированную таблицу лидеров
@@ -42,7 +42,7 @@ end
 function M.fetch_scoped(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.leaderboard.fetchScoped", { parameters }, callback)
+    core.call_api("leaderboard.fetchScoped", { parameters }, callback)
 end
 
 ---Публикация рекорда игрока в изолированную таблицу
@@ -51,7 +51,7 @@ end
 function M.publish_record(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.leaderboard.publishRecord", { parameters }, callback)
+    core.call_api("leaderboard.publishRecord", { parameters }, callback)
 end
 
 ---Получить рейтинг игрока в изолированной таблице
@@ -60,7 +60,7 @@ end
 function M.fetch_player_rating_scoped(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.leaderboard.fetchPlayerRatingScoped", { parameters }, callback)
+    core.call_api("leaderboard.fetchPlayerRatingScoped", { parameters }, callback)
 end
 
 return M

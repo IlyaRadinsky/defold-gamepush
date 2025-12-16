@@ -9,7 +9,7 @@ local callbacks = require("gamepush.core.callbacks")
 function M.upload(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.files.upload", { parameters }, callback)
+    core.call_api("files.upload", { parameters }, callback)
 end
 
 ---Загрузить файл по URL
@@ -18,7 +18,7 @@ end
 function M.upload_url(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.files.uploadUrl", { parameters }, callback)
+    core.call_api("files.uploadUrl", { parameters }, callback)
 end
 
 ---Загрузить контент
@@ -27,7 +27,7 @@ end
 function M.upload_content(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.files.uploadContent", { parameters }, callback)
+    core.call_api("files.uploadContent", { parameters }, callback)
 end
 
 ---Получить контент
@@ -36,7 +36,7 @@ end
 function M.load_content(uri, callback)
     helpers.check_string(uri, "uri")
     helpers.check_callback(callback)
-    core.call_api("gp.files.loadContent", { uri }, callback)
+    core.call_api("files.loadContent", { uri }, callback)
 end
 
 ---Выбрать файл
@@ -45,7 +45,7 @@ end
 function M.choose_file(accept, callback)
     helpers.check_string(accept, "accept", true)
     helpers.check_callback(callback)
-    core.call_api("gp.files.chooseFile", nil, callback)
+    core.call_api("files.chooseFile", nil, callback)
 end
 
 ---Получить файлы
@@ -54,7 +54,7 @@ end
 function M.fetch(parameters, callback)
     helpers.check_table(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.files.fetch", { parameters }, callback)
+    core.call_api("files.fetch", { parameters }, callback)
 end
 
 ---Получить еще файлы
@@ -63,13 +63,13 @@ end
 function M.fetch_more(parameters, callback)
     helpers.check_table(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.files.fetchMore", { parameters }, callback)
+    core.call_api("files.fetchMore", { parameters }, callback)
 end
 
 ---Проверить возможность загрузки файлов
 ---@return boolean возможность загрузки файлов
 function M.can_upload()
-    return core.call_api("gp.files.canUpload") == true
+    return core.call_api("files.canUpload") == true
 end
 
 M.callbacks = callbacks.files

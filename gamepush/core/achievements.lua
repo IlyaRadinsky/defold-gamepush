@@ -15,19 +15,19 @@ M.rare = {
 ---Список групп достижений
 ---@return table результат
 function M.groups_list()
-    return core.call_api("gp.achievements.groupsList")
+    return core.call_api("achievements.groupsList")
 end
 
 ---Список достижений
 ---@return table результат
 function M.list()
-    return core.call_api("gp.achievements.list")
+    return core.call_api("achievements.list")
 end
 
 ---Список разблокированных достижений
 ---@return table результат
 function M.unlocked_list()
-    return core.call_api("gp.achievements.unlockedList")
+    return core.call_api("achievements.unlockedList")
 end
 
 ---Разблокировать достижение
@@ -36,7 +36,7 @@ end
 function M.unlock(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.achievements.unlock", { parameters }, callback)
+    core.call_api("achievements.unlock", { parameters }, callback)
 end
 
 ---Установить прогресс в достижении
@@ -45,7 +45,7 @@ end
 function M.set_progress(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.achievements.setProgress", { parameters }, callback)
+    core.call_api("achievements.setProgress", { parameters }, callback)
 end
 
 ---Проверить есть ли у игрока достижение
@@ -53,7 +53,7 @@ end
 ---@return boolean результат
 function M.has(id_or_tag)
     helpers.check_string_or_number(id_or_tag, "id_or_tag")
-    return core.call_api("gp.achievements.has", id_or_tag) == true
+    return core.call_api("achievements.has", id_or_tag) == true
 end
 
 ---Получить прогресс достижения
@@ -61,21 +61,21 @@ end
 ---@return number результат
 function M.get_progress(id_or_tag)
     helpers.check_string_or_number(id_or_tag, "id_or_tag")
-    return core.call_api("gp.achievements.getProgress", id_or_tag)
+    return core.call_api("achievements.getProgress", id_or_tag)
 end
 
 ---Открыть достижения в оверлее
 ---@param callback function функция обратного вызова по результату открытия достижений: callback()
 function M.open(callback)
     helpers.check_callback(callback)
-    core.call_api("gp.achievements.open", nil, callback)
+    core.call_api("achievements.open", nil, callback)
 end
 
 ---Запросить достижения
 ---@param callback function функция обратного вызова по результату запроса достижений: callback(achievements)
 function M.fetch(callback)
     helpers.check_callback(callback)
-    return core.call_api("gp.achievements.fetch", nil, callback)
+    return core.call_api("achievements.fetch", nil, callback)
 end
 
 M.callbacks = callbacks.achievements

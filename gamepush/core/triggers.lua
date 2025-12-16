@@ -9,19 +9,19 @@ local callbacks = require("gamepush.core.callbacks")
 function M.claim(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.triggers.claim", { parameters }, callback)
+    core.call_api("triggers.claim", { parameters }, callback)
 end
 
 ---Список триггеров
 ---@return table результат
 function M.list()
-    return core.call_api("gp.triggers.list")
+    return core.call_api("triggers.list")
 end
 
 ---Список активированных триггеров
 ---@return table результат
 function M.activated_list()
-    return core.call_api("gp.triggers.activatedList")
+    return core.call_api("triggers.activatedList")
 end
 
 ---Получение информации о награде
@@ -29,7 +29,7 @@ end
 ---@return table результат
 function M.get_trigger(id_or_tag)
     helpers.check_string(id_or_tag, "id_or_tag")
-    return core.call_api("gp.triggers.getTrigger", id_or_tag)
+    return core.call_api("triggers.getTrigger", id_or_tag)
 end
 
 ---Триггер активирован
@@ -37,7 +37,7 @@ end
 ---@return boolean результат
 function M.is_activated(id_or_tag)
     helpers.check_string(id_or_tag, "id_or_tag")
-    return core.call_api("gp.triggers.isActivated", id_or_tag) == true
+    return core.call_api("triggers.isActivated", id_or_tag) == true
 end
 
 ---Награда начислена
@@ -45,7 +45,7 @@ end
 ---@return boolean результат
 function M.is_claimed(id_or_tag)
     helpers.check_string_or_number(id_or_tag, "id_or_tag")
-    return core.call_api("gp.triggers.isClaimed", id_or_tag) == true
+    return core.call_api("triggers.isClaimed", id_or_tag) == true
 end
 
 M.callbacks = callbacks.triggers

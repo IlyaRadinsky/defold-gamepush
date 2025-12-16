@@ -9,7 +9,7 @@ local callbacks = require("gamepush.core.callbacks")
 function M.upload(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.images.upload", { parameters }, callback)
+    core.call_api("images.upload", { parameters }, callback)
 end
 
 ---Загрузить изображение по URL
@@ -18,14 +18,14 @@ end
 function M.upload_url(parameters, callback)
     helpers.check_table_required(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.images.uploadUrl", { parameters }, callback)
+    core.call_api("images.uploadUrl", { parameters }, callback)
 end
 
 ---Выбрать файл
 ---@param callback function функция обратного вызова по результату выбора изображения: callback(result)
 function M.choice_file(callback)
     helpers.check_callback(callback)
-    core.call_api("gp.images.chooseFile", nil, callback)
+    core.call_api("images.chooseFile", nil, callback)
 end
 
 ---Получить изображения
@@ -34,7 +34,7 @@ end
 function M.fetch(parameters, callback)
     helpers.check_table(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.images.fetch", { parameters }, callback)
+    core.call_api("images.fetch", { parameters }, callback)
 end
 
 ---Получить еще изображений
@@ -43,7 +43,7 @@ end
 function M.fetch_more(parameters, callback)
     helpers.check_table(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.images.fetchMore", { parameters }, callback)
+    core.call_api("images.fetchMore", { parameters }, callback)
 end
 
 ---Изменить размер изображения
@@ -57,13 +57,13 @@ function M.resize(uri, width, height, crop)
     helpers.check_number(width, "width", true)
     helpers.check_number(height, "height", true)
     helpers.check_boolean(crop, "crop", true)
-    return core.call_api("gp.images.resize", { uri, width, height, crop })
+    return core.call_api("images.resize", { uri, width, height, crop })
 end
 
 ---Проверить возможность загрузки изображений
 ---@return boolean возможность загрузки изображений
 function M.can_upload()
-    return core.call_api("gp.images.canUpload") == true
+    return core.call_api("images.canUpload") == true
 end
 
 M.callbacks = callbacks.images

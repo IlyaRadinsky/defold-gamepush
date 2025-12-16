@@ -9,7 +9,7 @@ local callbacks = require("gamepush.core.callbacks")
 function M.open(parameters, callback)
     helpers.check_table(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.gamesCollections.open", { parameters }, callback)
+    core.call_api("gamesCollections.open", { parameters }, callback)
 end
 
 ---Получить коллекцию игр
@@ -19,7 +19,7 @@ end
 function M.fetch(parameters, callback)
     helpers.check_table(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.gamesCollections.fetch", { parameters }, callback)
+    core.call_api("gamesCollections.fetch", { parameters }, callback)
 end
 
 M.callbacks = callbacks.games_collections

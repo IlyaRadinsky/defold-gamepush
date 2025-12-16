@@ -6,19 +6,19 @@ local callbacks = require("gamepush.core.callbacks")
 ---Игрок авторизован
 ---@return boolean
 function M.is_logged_in()
-    return core.call_api("gp.player.isLoggedIn") == true
+    return core.call_api("player.isLoggedIn") == true
 end
 
 ---Игрок использует один из способов входа (кука, авторизация, секретный код)
 ---@return boolean
 function M.has_any_credentials()
-    return core.call_api("gp.player.hasAnyCredentials") == true
+    return core.call_api("player.hasAnyCredentials") == true
 end
 
 ---Игрок авторизован на платформе
 ---@return boolean
 function M.is_logged_in_by_platform()
-    return core.call_api("gp.player.isLoggedInByPlatform") == true
+    return core.call_api("player.isLoggedInByPlatform") == true
 end
 
 ---Синхронизация игрока
@@ -27,64 +27,64 @@ end
 function M.sync(parameters, callback)
     helpers.check_table(parameters)
     helpers.check_callback(callback)
-    core.call_api("gp.player.sync", { parameters }, callback)
+    core.call_api("player.sync", { parameters }, callback)
 end
 
 ---Загрузка игрока с сервера с перезаписью локального
 ---@param callback function функция обратного вызова по результату синхронизации: callback()
 function M.load(callback)
     helpers.check_callback(callback)
-    core.call_api("gp.player.load", nil, callback)
+    core.call_api("player.load", nil, callback)
 end
 
 ---Вход
 ---@param callback function функция обратного вызова по результату входа: callback(result)
 function M.login(callback)
     helpers.check_callback(callback)
-    core.call_api("gp.player.login", nil, callback)
+    core.call_api("player.login", nil, callback)
 end
 
 ---Получить список полей игрока
 ---@param callback function функция обратного вызова по результату получения полей игрока: callback()
 function M.fetch_fields(callback)
     helpers.check_callback(callback)
-    core.call_api("gp.player.fetchFields", nil, callback)
+    core.call_api("player.fetchFields", nil, callback)
 end
 
 ---ID игрока
 ---@return number
 function M.id()
-    return core.call_api("gp.player.id")
+    return core.call_api("player.id")
 end
 
 ---Очки игрока
 ---@return number
 function M.score()
-    return core.call_api("gp.player.score") or 0
+    return core.call_api("player.score") or 0
 end
 
 ---Имя игрока
 ---@return string
 function M.name()
-    return core.call_api("gp.player.name") or ""
+    return core.call_api("player.name") or ""
 end
 
 ---Ссылка на аватар игрока
 ---@return string
 function M.avatar()
-    return core.call_api("gp.player.avatar")
+    return core.call_api("player.avatar")
 end
 
 ---Заглушка — пустой ли игрок или данные в нём отличаются умолчательных
 ---@return boolean
 function M.is_stub()
-    return core.call_api("gp.player.isStub") == true
+    return core.call_api("player.isStub") == true
 end
 
 ---Поля игрока
 ---@return table
 function M.fields()
-    return core.call_api("gp.player.fields")
+    return core.call_api("player.fields")
 end
 
 ---Получить значение поля key
@@ -92,7 +92,7 @@ end
 ---@return string|number|boolean значение поля key
 function M.get(key)
     helpers.check_key(key)
-    return core.call_api("gp.player.get", key)
+    return core.call_api("player.get", key)
 end
 
 ---Установить значение поля key
@@ -101,7 +101,7 @@ end
 function M.set(key, value)
     helpers.check_key(key)
     helpers.check_value(value)
-    core.call_api("gp.player.set", { key, value })
+    core.call_api("player.set", { key, value })
 end
 
 ---Добавить значение к полю key
@@ -110,14 +110,14 @@ end
 function M.add(key, value)
     helpers.check_key(key)
     helpers.check_number(value, "value")
-    core.call_api("gp.player.add", { key, value })
+    core.call_api("player.add", { key, value })
 end
 
 ---Инвертировать значение поля key
 ---@param key string ключ
 function M.toggle(key)
     helpers.check_key(key)
-    core.call_api("gp.player.toggle", key)
+    core.call_api("player.toggle", key)
 end
 
 ---Проверить есть ли поле key и оно не пустое (не 0, '', false, null, undefined)
@@ -125,30 +125,30 @@ end
 ---@return boolean результат
 function M.has(key)
     helpers.check_key(key)
-    return core.call_api("gp.player.has", key) == true
+    return core.call_api("player.has", key) == true
 end
 
 ---Возвращает состояние игрока объектом
 ---@return table таблица с данными игрока
 function M.to_json()
-    return core.call_api("gp.player.toJSON")
+    return core.call_api("player.toJSON")
 end
 
 ---Устанавливает состояние игрока из объекта
 ---@param parameters table таблица с данными игрока
 function M.from_json(parameters)
     helpers.check_table(parameters)
-    core.call_api("gp.player.fromJSON", { parameters })
+    core.call_api("player.fromJSON", { parameters })
 end
 
 ---Сбрасывает состояние игрока на умолчательное
 function M.reset()
-    core.call_api("gp.player.reset")
+    core.call_api("player.reset")
 end
 
 ---Удаляет игрока — сбрасывает поля и очищает ID
 function M.remove()
-    core.call_api("gp.player.remove")
+    core.call_api("player.remove")
 end
 
 ---Получить поле по ключу key
@@ -156,7 +156,7 @@ end
 ---@return table результат
 function M.get_field(key)
     helpers.check_key(key)
-    return core.call_api("gp.player.getField", key)
+    return core.call_api("player.getField", key)
 end
 
 ---Получить переведенное имя поля по ключу key
@@ -164,7 +164,7 @@ end
 ---@return string результат
 function M.get_field_name(key)
     helpers.check_key(key)
-    return core.call_api("gp.player.getFieldName", key)
+    return core.call_api("player.getFieldName", key)
 end
 
 ---Получить переведенное имя варианта поля (enum) по ключу key и его значению value
@@ -176,7 +176,7 @@ function M.get_field_variant_name(key, value)
     if type(value) ~= "string" then
         error("The value must be a string!", 2)
     end
-    return core.call_api("gp.player.getFieldVariantName", { key, value })
+    return core.call_api("player.getFieldVariantName", { key, value })
 end
 
 M.stats = require("gamepush.core.player_stats")
